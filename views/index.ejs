@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentación de la Api</title>
+    <link rel="stylesheet" href="/style.css"> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+<body>
+    <h1>Documentacion...</h1>
+    <h3>Empoint Juegos</h3>
+    <div id="carouselExampleIndicators" class="carousel slide">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="slider carousel-item active">
+            <table class="table d-flex justify-content-center">
+                <tbody>
+                  <tr>
+                    <th scope="row">Número</th>
+                    <td>1</td>
+                    
+                  </tr>
+                  <tr>
+                    <th scope="row">Nombre del Webservice</th>
+                    <td>Listar Juego</td>
+                    
+                  </tr>
+                  <tr>
+                    <th scope="row">URL</th>
+                    <td>Localhost:3000/juego/listar</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Description</th>
+                    <td>El Sistema permite visualizar los datos agregados en la base de datos</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Verbo HTTP</th>
+                    <td>GET</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Usuarios</th>
+                    <td>Administrador</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Request bodyfrom-data</th>
+                    <td>No aplica</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Response</th>
+                    <td>Correcto: <br>
+                        -	Status:200 <br>
+                        -	Body:</td>
+                  </tr>
+                  <tr>
+                    <th scope="row"></th>
+                    <td>
+                    {<br>
+                        "idjuego": 3,<br>
+                        "nombre": "candelita",<br>
+                        "descripcion": "juego online",<br>
+                        "imagen": null,<br>
+                        "precio": "5000.00"<br>
+                    } <br>
+                        Incorrecto :<br>
+                        -	status (500) <br>
+                        -	body: <br>
+                        { <br>
+                        “mensaje”: 'error en listar Juego' 
+                        <br> }
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+          </div>
+          <div class="slider carousel-item">
+            <table class="table d-flex justify-content-center">
+                <tbody>
+                    <tr>
+                        <th scope="row">Número</th>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Nombre del Webservice</th>
+                        <td>Buscar Juego</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">URL</th>
+                        <td>Localhost:3000/juego/buscar/:id</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Description</th>
+                        <td> Permite visualizar los datos de juegos disponibles en la base de datos <br> dependiento el id que se ubica en la url 
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Verbo HTTP</th>
+                        <td>POST</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">header</th>
+                        <td>Authorization brearer {TOKEN} Content-Typen:From-Data</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Usuarios</th>
+                        <td>Administrador</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Request bodyfrom-data</th>
+                        <td>No aplica</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Response</th>
+                        <td>Correcto: <br>
+                            -	Status:200 <br>
+                            -	Body:</td>
+                    </tr>
+                    <tr>
+                        <th scope="row"></th>
+                        <td>{<br>
+                            "idjuego": 3,<br>
+                            "nombre": "candelita",<br>
+                            "descripcion": "juego online",<br>
+                            "imagen": null,<br>
+                            "precio": "5000.00"<br>
+                        } <br>
+                    
+                    <br>
+                    Incorrecto :<br>
+                    -	status (500) <br>
+                    -	body: <br>
+                     { <br>
+                     “mensaje”: 'error en buscar Juego
+                    <br> }</td>
+                    </tr>
+                </tbody>
+              </table>
+          </div>
+          <div class="slider carousel-item">
+            <table class="table d-flex justify-content-center">
+                <tbody>
+                    <tr>
+                        <th scope="row">Número</th>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Nombre del Webservice</th>
+                        <td>Registrar juego</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">URL</th>
+                        <td>Localhost:3000/juego/registrar /:id</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Description</th>
+                        <td>Se permite registrar los datos de una nueva persona a la base de datos</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Verbo HTTP</th>
+                        <td>POST</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">header</th>
+                        <td>Authorization brearer {TOKEN} Content-Typen:From-Data</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Usuarios</th>
+                        <td>Administrador</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Request bodyfrom-data</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Response</th>
+                        <td>Correcto: <br>
+                            -	Status:200 <br>
+                            -	Body:</td>
+                    </tr>
+                    <tr>
+                        <th scope="row"></th>
+                        <td>{
+                            "status": 200,<br>
+                            "mensaje": "Se registro con éxito el juego"<br>
+                        }
+                        
+                        Incorrecto:                     
+                        -	 status:401<br>
+                        -	Body:<br>
+                        {                           
+                          "mensaje":" No se registró el juego"<br>
+                                           
+                        }   
+                        No autorizado:<br>
+                        -	Status:500<br>
+                        -	Body:<br>
+                        {                             
+                              "mensaje": "Error en la ejecución”<br>
+                        }
+                        </td>
+                    </tr>
+                </tbody>
+              </table>
+          </div>
+          <div class="slider carousel-item">
+            <table class="table d-flex justify-content-center">
+                <tbody>
+                    <tr>
+                        <th scope="row">Número</th>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Nombre del Webservice</th>
+                        <td>Eliminar juego </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">URL</th>
+                        <td>Localhost:3000/Juego/eliminar/:id</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Description</th>
+                        <td>Permite eliminar  el juego que coincida con los ID ingresado por la url</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Verbo HTTP</th>
+                        <td>DELETE</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">header</th>
+                        <td>Authorization brearer {TOKEN} Content-Typen:From-Data</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Usuarios</th>
+                        <td>Administrador</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Request bodyfrom-data</th>
+                        <td>No aplica</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Response</th>
+                        <td>{
+                            "status": 200,<br>
+                            "mensaje": "Se elimino el juego con éxito!!"<br>
+                        }
+                        Incorrecto:<br>
+                        -	status:401<br>
+                        -	Body:<br>
+                        {                           
+                          "mensaje":" No se eliminó el juego"<br>
+                                           
+                        }   
+                        No autorizado:<br>
+                        -	Status:500<br>
+                        -	Body:<br>
+                        {                             
+                              "mensaje": "Error en el servidor”<br>
+                        }
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row"></th>
+                        <td></td>
+                    </tr>
+                </tbody>
+              </table>
+          </div>
+          <div class="slider carousel-item">
+            <table class="table d-flex justify-content-center">
+                <tbody>
+                    <tr>
+                        <th scope="row">Número</th>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Nombre del Webservice</th>
+                        <td>Actualizar juego </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">URL</th>
+                        <td>Localhost:3000/Juego/actualizar /:id</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Description</th>
+                        <td>El Sistema permite actualizar el  juego  de la base de datos ingresada y<br> mediante la url   se actualizaran los respectivos datos </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Verbo HTTP</th>
+                        <td>PUT</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">header</th>
+                        <td>Authorization brearer {TOKEN} Content-Typen:From-Data</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Usuarios</th>
+                        <td>Administrador</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Request bodyfrom-data</th>
+                        <td>{
+                            "nombre":"candelita",
+                            "descripcion":"juego online de parejas",
+                            "precio":"5000"
+                        }
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Response</th>
+                        <td>Correcto:
+                            -	Status:200
+                            -	Body:</td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td>
+                            {
+                                "status": 200,<br>
+                                "mensaje": "Se actualizo con éxito el Juego"<br>
+                            }
+                            Incorrecto:<br>
+                            -	status:401<br>
+                            -	Body:<br>
+                            {                           
+                              "mensaje":" No se actualizó el juego"<br>
+                                               
+                            }   
+                            No autorizado:<br>
+                            -	Status:500<br>
+                            -	Body:<br>
+                            {                             
+                                  "mensaje": "Error en la ejecución”<br>
+                            }
+                            
+                            
+                        </td>
+                    </tr>
+                </tbody>
+              </table>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon " aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+   
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script type="module" src="/style.js"></script>
+</body>
+</html>
