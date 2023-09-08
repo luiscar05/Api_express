@@ -23,9 +23,9 @@ export const buscarUsuario=async(req,res)=>{
 
 export const guardarUsuario = async(req,res)=>{
     try {
-        let {nombres,direccion,telefono,correo,rol}=req.body;
-        let sql=`insert into usuarios(nombres,direccion,telefono,correo,rol)
-                 values('${nombres}','${direccion}','${telefono}','${correo}','${rol}')`;
+        let {nombres,direccion,telefono,correo,rol,password}=req.body;
+        let sql=`insert into usuarios(nombres,direccion,telefono,correo,rol,password)
+                 values('${nombres}','${direccion}','${telefono}','${correo}','${rol}','${password}')`;
         const[rows]=await pool.query(sql);
     
     

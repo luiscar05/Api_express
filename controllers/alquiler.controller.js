@@ -47,13 +47,15 @@ export const RegistrarAlquiler = async(req,res)=>{
 export const ListarAlquilados= async(req,res)=>{
     try{
         const[result]=await pool.query (`SELECT fecha_alquiler,cantidad,nombres as usuario ,nombre as juego, estado FROM alquiler join usuarios on idusuario=usuario join juegos on idjuego=juego where estado='prestamo'`);
+        
+        
         if (Array.isArray(result) && result.length == 0) {
             res.json({"Message":"No Se Encontraron Resultados"})
         }else{
-            res.status(200).json(result);
+           res.status(200).json(result);
         }
     }catch(err){
-        res.status(500).json({ Massage:'error en listarJuego:'+err});
+        res.status(500).json({ Massage:'error en listar alquileres :'+err});
     }
 }
 export const ListarReservados= async(req,res)=>{
