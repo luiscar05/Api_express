@@ -105,7 +105,8 @@ export const EntregarJuego=async(req,res)=>{
         console.log(noo)
         let estadoP=noo[0].estado=='prestamo';
         let estodoR=noo[0].estado=='reserva';
-        if (estadoP) {
+        
+        if (estadoP || estodoR) {
             let sql = `UPDATE alquiler SET estado =3, fecha_devolucion = NOW() WHERE usuario=${id}`;
             const[rows]=await pool.query(sql);
 
@@ -120,23 +121,13 @@ export const EntregarJuego=async(req,res)=>{
                                     "message":" No se puedo devolver el juego"
                                     });
             }   
-        }
+        } 
 
-        if (estodoR) {
-            let sql = `UPDATE alquiler SET estado =2, fecha_devolucion = 'NOW()' WHERE usuario=${id}`;
-            const[rows]=await pool.query(sql);
-
-            if(rows.affectedRows>0){
-                res.status(200).json({
-                                    "status":200,
-                                    "message":"El juego fue devuleto con exito"
-                                    });
-            }else{
-                res.status(401).json({
-                                    "status":401,
-                                    "message":" No se puedo devolver el juego"
-                                    });
-            }   
+        if (!estadoP||!estodoR) {
+            res.status(401).json({
+                "status":401,
+                "message":" No se puedo devolver el juego"
+            }); 
         }
       
 

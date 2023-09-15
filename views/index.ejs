@@ -8,8 +8,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
 <body>
-    <h1>Documentacion...</h1>
-    <h3>Empoint Juegos</h3>
+    <h1 class="text-dark">Documentacion...</h1>
+<section>
+    <h3>Empoint Usuarios</h3>
     <div id="carouselExampleIndicators" class="carousel slide">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -20,6 +21,360 @@
         </div>
         <div class="carousel-inner">
           <div class="slider carousel-item active">
+            <table class="table d-flex justify-content-center">
+                <tbody>
+                  <tr>
+                    <th scope="row">Número</th>
+                    <td>1</td>
+                    
+                  </tr>
+                  <tr>
+                    <th scope="row">Nombre del Webservice</th>
+                    <td>Resgistrar Usuario</td>
+                    
+                  </tr>
+                  <tr>
+                    <th scope="row">URL</th>
+                    <td>Localhost:3000/usuarios/registrar</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Description</th>
+                    <td>El Sistema permite Registrar un nuevo usuario</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Verbo HTTP</th>
+                    <td>POST</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Usuarios</th>
+                    <td>Administrador</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Request bodyfrom-data</th>
+                    <td>No aplica</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Response</th>
+                    <td> Correcto: <br>
+                        -	Status:200 <br>
+                        -	Body:</td>
+                  </tr>
+                  <tr>
+                    <th scope="row"></th>
+                    <td>{
+                        "status": 200,<br>
+                        "mensaje": "Se registro con éxito el juego"<br>
+                    }
+                    
+                    Incorrecto:                     
+                    -	 status:401<br>
+                    -	Body:<br>
+                    {                           
+                      "mensaje":" No se registró el juego"<br>
+                                       
+                    }   
+                    No autorizado:<br>
+                    -	Status:500<br>
+                    -	Body:<br>
+                    {                             
+                          "mensaje": "Error en la ejecución”<br>
+                    }
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+          </div>
+          <div class="slider carousel-item">
+            <table class="table d-flex justify-content-center">
+                <tbody>
+                    <tr>
+                        <th scope="row">Número</th>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Nombre del Webservice</th>
+                        <td>Buscar Usuario</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">URL</th>
+                        <td>Localhost:3000/usuarios/buscarUsuario/:id</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Description</th>
+                        <td> Permite visualizar los datos de juegos disponibles en la base de datos <br> dependiento el id que se ubica en la url 
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Verbo HTTP</th>
+                        <td>POST</td>
+                    </tr>
+                   
+                    <tr>
+                        <th scope="row">Usuarios</th>
+                        <td>Administrador</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Request bodyfrom-data</th>
+                        <td>No aplica</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Response</th>
+                        <td>Correcto: <br>
+                            -	Status:200 <br>
+                            -	Body:</td>
+                    </tr>
+                    <tr>
+                        <th scope="row"></th>
+                        <td>{<br>
+                            "idusuario": 1,<br>
+                            "nombre": "Luis Carlos",<br>
+                            "direccion": "cll 14",<br>
+                            "telefono": "3138701441",<br>
+                            "rol": "usuario"<br>
+                            "password":"123"<br>
+                        } <br>
+                    
+                    <br>
+                    Incorrecto :<br>
+                    -	status (500) <br>
+                    -	body: <br>
+                     { <br>
+                     “mensaje”: 'error en buscar Usuario
+                    <br> }</td>
+                    </tr>
+                </tbody>
+              </table>
+          </div>
+          <div class="slider carousel-item">
+           <table class="table d-flex justify-content-center">
+                <tbody>
+                  <tr>
+                    <th scope="row">Número</th>
+                    <td>3</td>
+                    
+                  </tr>
+                  <tr>
+                    <th scope="row">Nombre del Webservice</th>
+                    <td>Listar Usuarios</td>
+                    
+                  </tr>
+                  <tr>
+                    <th scope="row">URL</th>
+                    <td>Localhost:3000/usuarios/listar</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Description</th>
+                    <td>El Sistema permite visualizar los datos agregados en la base de datos</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Verbo HTTP</th>
+                    <td>GET</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">header</th>
+                    <td>Authorization brearer {TOKEN} Content-Typen:From-Data</td>
+                </tr>
+                  <tr>
+                    <th scope="row">Usuarios</th>
+                    <td>Administrador</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Request bodyfrom-data</th>
+                    <td>No aplica</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Response</th>
+                    <td>Correcto: <br>
+                        -	Status:200 <br>
+                        -	Body:</td>
+                  </tr>
+                  <tr>
+                    <th scope="row"></th>
+                    <td>
+                    <br>{<br>
+                            "idusuario": 1,<br>
+                            "nombre": "Luis Carlos",<br>
+                            "direccion": "cll 14",<br>
+                            "telefono": "3138701441",<br>
+                            "rol": "usuario"<br>
+                            "password":"123"<br>
+                        } <br>
+                        Incorrecto :<br>
+                        -	status (500) <br>
+                        -	body: <br>
+                        { <br>
+                        “mensaje”: 'error en listar Usuario' 
+                        <br> }
+                    </td>
+                  </tr>
+                </tbody>
+            </table>
+          </div>
+          <div class="slider carousel-item">
+            <table class="table d-flex justify-content-center">
+                <tbody>
+                    <tr>
+                        <th scope="row">Número</th>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Nombre del Webservice</th>
+                        <td>Eliminar Usuario </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">URL</th>
+                        <td>Localhost:3000/usuarios//eliminar/:id</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Description</th>
+                        <td>Permite eliminar  el juego que coincida con los ID ingresado por la url</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Verbo HTTP</th>
+                        <td>DELETE</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">header</th>
+                        <td>Authorization brearer {TOKEN} Content-Typen:From-Data</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Usuarios</th>
+                        <td>Administrador</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Request bodyfrom-data</th>
+                        <td>No aplica</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Response</th>
+                        <td>{
+                            "status": 200,<br>
+                            "mensaje": "Se elimino el Usuario con éxito!!"<br>
+                        }
+                        Incorrecto:<br>
+                        -	status:401<br>
+                        -	Body:<br>
+                        {                           
+                          "mensaje":" No se eliminó el usuario"<br>
+                                           
+                        }   
+                        No autorizado:<br>
+                        -	Status:500<br>
+                        -	Body:<br>
+                        {                             
+                              "mensaje": "Error en el servidor”<br>
+                        }
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row"></th>
+                        <td></td>
+                    </tr>
+                </tbody>
+              </table>
+          </div>
+          <div class="slider carousel-item">
+            <table class="table d-flex justify-content-center">
+                <tbody>
+                    <tr>
+                        <th scope="row">Número</th>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Nombre del Webservice</th>
+                        <td>Actualizar Usuario</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">URL</th>
+                        <td>Localhost:3000/usuario/actualizar/:id</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Description</th>
+                        <td>El Sistema permite actualizar el  juego  de la base de datos ingresada y<br> mediante la url   se actualizaran los respectivos datos </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Verbo HTTP</th>
+                        <td>PUT</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">header</th>
+                        <td>Authorization brearer {TOKEN} Content-Typen:From-Data</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Usuarios</th>
+                        <td>Administrador</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Request bodyfrom-data</th>
+                        <td>{
+                            "nombre":"Mauricio Peña",
+                            "direccion":"cll 25 a sur",
+                            "telefono":"3125338180"
+                        }
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Response</th>
+                        <td>Correcto:
+                            -	Status:200
+                            -	Body:</td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td>
+                            {
+                                "status": 200,<br>
+                                "mensaje": "Se actualizo con éxito el Usuario"<br>
+                            }
+                            Incorrecto:<br>
+                            -	status:401<br>
+                            -	Body:<br>
+                            {                           
+                              "mensaje":" No se actualizó el Usuarios"<br>
+                                               
+                            }   
+                            No autorizado:<br>
+                            -	Status:500<br>
+                            -	Body:<br>
+                            {                             
+                                  "mensaje": "Error en la ejecución”<br>
+                            }
+                            
+                            
+                        </td>
+                    </tr>
+                </tbody>
+              </table>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon " aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+    </div> 
+</section>
+<!-- 
+
+
+
+
+ -->
+<section>
+    <h3>Empoint Juegos</h3>
+    <div id="carouselExampleCaptions" class="carousel slide">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4" aria-label="Slide 5"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
             <table class="table d-flex justify-content-center">
                 <tbody>
                   <tr>
@@ -77,9 +432,9 @@
                     </td>
                   </tr>
                 </tbody>
-              </table>
+            </table>
           </div>
-          <div class="slider carousel-item">
+          <div class="carousel-item">
             <table class="table d-flex justify-content-center">
                 <tbody>
                     <tr>
@@ -140,9 +495,9 @@
                     <br> }</td>
                     </tr>
                 </tbody>
-              </table>
+            </table>
           </div>
-          <div class="slider carousel-item">
+          <div class="carousel-item">
             <table class="table d-flex justify-content-center">
                 <tbody>
                     <tr>
@@ -206,9 +561,9 @@
                         </td>
                     </tr>
                 </tbody>
-              </table>
+            </table>
           </div>
-          <div class="slider carousel-item">
+          <div class="carousel-item">
             <table class="table d-flex justify-content-center">
                 <tbody>
                     <tr>
@@ -269,9 +624,9 @@
                         <td></td>
                     </tr>
                 </tbody>
-              </table>
+            </table>
           </div>
-          <div class="slider carousel-item">
+          <div class="carousel-item">
             <table class="table d-flex justify-content-center">
                 <tbody>
                     <tr>
@@ -342,21 +697,423 @@
                         </td>
                     </tr>
                 </tbody>
-              </table>
+            </table>
           </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-          <span class="carousel-control-next-icon " aria-hidden="true"></span>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
         </button>
       </div>
+</section>
+<!-- 
 
-   
+ -->
+
+
+<section>
+    <h3>Empoint Alquiler</h3>
+    <div id="carouselExample" class="carousel slide">
+        <div class="carousel-inner">
+            <div class="slider carousel-item active">
+              <table class="table d-flex justify-content-center">
+                  <tbody>
+                    <tr>
+                      <th scope="row">Número</th>
+                      <td>1</td>
+                      
+                    </tr>
+                    <tr>
+                      <th scope="row">Nombre del Webservice</th>
+                      <td>Listar Alquiler con un estado prestado</td>
+                      
+                    </tr>
+                    <tr>
+                      <th scope="row">URL</th>
+                      <td>localhost:3000/Aquiler/Prestamos</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Description</th>
+                      <td>El Sistema permite visualizar los datos agregados en la base de datos con un estado de alquiler en prestamo</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Verbo HTTP</th>
+                      <td>GET</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">header</th>
+                      <td>Authorization brearer {TOKEN} Content-Typen:From-Data</td>
+                  </tr>
+                    <tr>
+                      <th scope="row">Usuarios</th>
+                      <td>Administrador</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Request bodyfrom-data</th>
+                      <td>No aplica</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Response</th>
+                      <td>Correcto: <br>
+                          -	Status:200 <br>
+                          -	Body:</td>
+                    </tr>
+                    <tr>
+                      <th scope="row"></th>
+                      <td>
+                      {<br>
+                        "fecha_alquiler": "2023-09-07T05:00:00.000Z",<br>
+                        "cantidad": 1,<br>
+                        "usuario": "Luis Carlos",<br>
+                        "juego": "Mario",<br>
+                        "estado": "prestamo"<br>
+                      } <br>
+                          Incorrecto :<br>
+                          -	status (500) <br>
+                          -	body: <br>
+                          { <br>
+                          “mensaje”: 'error en listar Alquiler' 
+                          <br> }
+                      </td>
+                    </tr>
+                  </tbody>
+              </table>
+            </div>
+            <div class="slider carousel-item ">
+                <table class="table d-flex justify-content-center">
+                    <tbody>
+                      <tr>
+                        <th scope="row">Número</th>
+                        <td>2</td>
+                        
+                      </tr>
+                      <tr>
+                        <th scope="row">Nombre del Webservice</th>
+                        <td>Listar Alquiler con un estado reservado</td>
+                        
+                      </tr>
+                      <tr>
+                        <th scope="row">URL</th>
+                        <td>localhost:3000/Aquiler/Reservados</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Description</th>
+                        <td>El Sistema permite visualizar los datos agregados en la base de datos con un estado de alquiler en reservado</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Verbo HTTP</th>
+                        <td>GET</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">header</th>
+                        <td>Authorization brearer {TOKEN} Content-Typen:From-Data</td>
+                    </tr>
+                      <tr>
+                        <th scope="row">Usuarios</th>
+                        <td>Administrador</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Request bodyfrom-data</th>
+                        <td>No aplica</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Response</th>
+                        <td>Correcto: <br>
+                            -	Status:200 <br>
+                            -	Body:</td>
+                      </tr>
+                      <tr>
+                        <th scope="row"></th>
+                        <td>
+                        {<br>
+                          "fecha_alquiler": "2023-09-07T05:00:00.000Z",<br>
+                          "cantidad": 1,<br>
+                          "usuario": "Luis Carlos",<br>
+                          "juego": "Mario",<br>
+                          "estado": "reservado"<br>
+                        } <br>
+                            Incorrecto :<br>
+                            -	status (500) <br>
+                            -	body: <br>
+                            { <br>
+                            “mensaje”: 'error en listar Alquiler' 
+                            <br> }
+                        </td>
+                      </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="slider carousel-item ">
+                <table class="table d-flex justify-content-center">
+                    <tbody>
+                      <tr>
+                        <th scope="row">Número</th>
+                        <td>3</td>
+                        
+                      </tr>
+                      <tr>
+                        <th scope="row">Nombre del Webservice</th>
+                        <td>Listar Alquiler con un estado Entregados</td>
+                        
+                      </tr>
+                      <tr>
+                        <th scope="row">URL</th>
+                        <td>localhost:3000/Aquiler/Devolucion</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Description</th>
+                        <td>El Sistema permite visualizar los datos agregados en la base de datos con un estado de alquiler en devolucion</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Verbo HTTP</th>
+                        <td>GET</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">header</th>
+                        <td>Authorization brearer {TOKEN} Content-Typen:From-Data</td>
+                    </tr>
+                      <tr>
+                        <th scope="row">Usuarios</th>
+                        <td>Administrador</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Request bodyfrom-data</th>
+                        <td>No aplica</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Response</th>
+                        <td>Correcto: <br>
+                            -	Status:200 <br>
+                            -	Body:</td>
+                      </tr>
+                      <tr>
+                        <th scope="row"></th>
+                        <td>
+                        {<br>
+                          "fecha_alquiler": "2023-09-07T05:00:00.000Z",<br>
+                          "cantidad": 1,<br>
+                          "usuario": "Luis Carlos",<br>
+                          "juego": "Mario",<br>
+                          "estado": "devolucion"<br>
+                        } <br>
+                            Incorrecto :<br>
+                            -	status (500) <br>
+                            -	body: <br>
+                            { <br>
+                            “mensaje”: 'error en listar Alquiler' 
+                            <br> }
+                        </td>
+                      </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="slider carousel-item">
+              <table class="table d-flex justify-content-center">
+                  <tbody>
+                      <tr>
+                          <th scope="row">Número</th>
+                          <td>4</td>
+                      </tr>
+                      <tr>
+                          <th scope="row">Nombre del Webservice</th>
+                          <td>Buscar Alquiler</td>
+                      </tr>
+                      <tr>
+                          <th scope="row">URL</th>
+                          <td>localhost:3000/Aquiler/Buscar/:id</td>
+                      </tr>
+                      <tr>
+                          <th scope="row">Description</th>
+                          <td> Permite visualizar los datos del alquiler  en la base de datos <br> dependiento el id que se ubica en la url 
+                          </td>
+                      </tr>
+                      <tr>
+                          <th scope="row">Verbo HTTP</th>
+                          <td>POST</td>
+                      </tr>
+                      <tr>
+                          <th scope="row">header</th>
+                          <td>Authorization brearer {TOKEN} Content-Typen:From-Data</td>
+                      </tr>
+                      <tr>
+                          <th scope="row">Usuarios</th>
+                          <td>Administrador</td>
+                      </tr>
+                      <tr>
+                          <th scope="row">Request bodyfrom-data</th>
+                          <td>No aplica</td>
+                      </tr>
+                      <tr>
+                          <th scope="row">Response</th>
+                          <td>Correcto: <br>
+                              -	Status:200 <br>
+                              -	Body:</td>
+                      </tr>
+                      <tr>
+                          <th scope="row"></th>
+                          <td>"fecha_alquiler": "2023-09-14T05:00:00.000Z",<br>
+                            "cantidad": 3,<br>
+                            "usuario": "Lina Tatiana",<br>
+                            "juego": "Mario",<br>
+                            "estado": "devolucion"<br>
+                      
+                      <br>
+                      Incorrecto :<br>
+                      -	status (500) <br>
+                      -	body: <br>
+                       { <br>
+                       “mensaje”: 'error en buscar Alquiler
+                      <br> }</td>
+                      </tr>
+                  </tbody>
+                </table>
+            </div>
+            <div class="slider carousel-item">
+              <table class="table d-flex justify-content-center">
+                  <tbody>
+                      <tr>
+                          <th scope="row">Número</th>
+                          <td>5</td>
+                      </tr>
+                      <tr>
+                          <th scope="row">Nombre del Webservice</th>
+                          <td>Registrar Alquiler</td>
+                      </tr>
+                      <tr>
+                          <th scope="row">URL</th>
+                          <td>localhost:3000/Aquiler/Registrar</td>
+                      </tr>
+                      <tr>
+                          <th scope="row">Description</th>
+                          <td>El sistema permite registrar los datos de un nuevo alquler <br>
+                            ddependiendo coincidencias entre las personas el juego en la base de datos</td>
+                      </tr>
+                      <tr>
+                          <th scope="row">Verbo HTTP</th>
+                          <td>POST</td>
+                      </tr>
+                     
+                      <tr>
+                          <th scope="row">Usuarios</th>
+                          <td>Administrador</td>
+                      </tr>
+                      <tr>
+                          <th scope="row">Request bodyfrom-data</th>
+                          <td></td>
+                      </tr>
+                      <tr>
+                          <th scope="row">Response</th>
+                          <td>Correcto: <br>
+                              -	Status:200 <br>
+                              -	Body:</td>
+                      </tr>
+                      <tr>
+                          <th scope="row"></th>
+                          <td>{
+                              "status": 200,<br>
+                              "mensaje": "Se registro con éxito el alquiler"<br>
+                          }
+                          
+                          Incorrecto:                     
+                          -	 status:401<br>
+                          -	Body:<br>
+                          {                           
+                            "mensaje":" No se registró el Alquiler"<br>
+                                             
+                          }   
+                          No autorizado:<br>
+                          -	Status:500<br>
+                          -	Body:<br>
+                          {                             
+                                "mensaje": "Error en la ejecución”<br>
+                          }
+                          </td>
+                      </tr>
+                  </tbody>
+                </table>
+            </div>
+            <div class="slider carousel-item">
+              <table class="table d-flex justify-content-center">
+                  <tbody>
+                      <tr>
+                          <th scope="row">Número</th>
+                          <td>6</td>
+                      </tr>
+                      <tr>
+                          <th scope="row">Nombre del Webservice</th>
+                          <td>Entregar Juego juego </td>
+                      </tr>
+                      <tr>
+                          <th scope="row">URL</th>
+                          <td>localhost:3000/Aquiler/Entregar/:id</td>
+                      </tr>
+                      <tr>
+                          <th scope="row">Description</th>
+                          <td> el sistema permite cambiar de estado un juego dependiendo el id <br> 
+                            de la persona el cual se capta desde la url
+                            </td>
+                      </tr>
+                      <tr>
+                          <th scope="row">Verbo HTTP</th>
+                          <td>Put</td>
+                      </tr>
+                      <tr>
+                          <th scope="row">header</th>
+                          <td>Authorization brearer {TOKEN} Content-Typen:From-Data</td>
+                      </tr>
+                      <tr>
+                          <th scope="row">Usuarios</th>
+                          <td>Administrador</td>
+                      </tr>
+                      <tr>
+                          <th scope="row">Request bodyfrom-data</th>
+                          <td>No aplica</td>
+                      </tr>
+                      <tr>
+                          <th scope="row">Response</th>
+                          <td>{
+                            "status": 200,<br>
+                            "message": "El juego fue devuleto con exito"<br>
+                          }
+                          Incorrecto:<br>
+                          -	status:401<br>
+                          -	Body:<br>
+                          {                           
+                            "mensaje":" No se eliminó el juego"<br>
+                                             
+                          }   
+                          No autorizado:<br>
+                          -	Status:500<br>
+                          -	Body:<br>
+                          {                             
+                                "mensaje": "Error en el servidor”<br>
+                          }
+                          </td>
+                      </tr>
+                      <tr>
+                          <th scope="row"></th>
+                          <td></td>
+                      </tr>
+                  </tbody>
+                </table>
+            </div>
+          </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+</section>    
     
+ 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
     <script type="module" src="/style.js"></script>
 </body>
