@@ -2,17 +2,8 @@ import{pool}from"../database/conexion.js";
 
 export const RegistrarAlquiler = async(req,res)=>{
     try {
-        let { cantidad, nombreUsuario, nombreJuego, estado } = req.body;
-
-        // Asegúrate de que los nombres de las columnas en las tablas sean correctos
-
-
-        let idUsuario = `select idusuario from usuarios where nombres='${nombreUsuario}'`;
-        const[iduser]=await pool.query(idUsuario)
-        let idJuego = `select idjuego from juegos where nombre='${nombreJuego}'`;
-        const[idjuego]=await pool.query(idJuego)
-
-
+        let { cantidad, idUsuario, idJuego, estado } = req.body;
+        
         if (estado==1 || estado===2) {
             let sql = `INSERT INTO alquiler (fecha_alquiler, cantidad, usuario, juego, estado) VALUES 
            (NOW(), '${cantidad}', (${idUsuario}), (${idJuego}), '${estado}')`;
@@ -28,10 +19,12 @@ export const RegistrarAlquiler = async(req,res)=>{
                                     "status":401,
                                     "message":" No se registro el alquiler"
                                     });
-            }   
+            }    
         }else{
+            let idUsuarios = `select nombre from usuarios where nombres='${idUsuarios}'`;
+            const[iduser]=await pool.query(idUsuario)
             res.json({
-                "messege":`${nombreUsuario} el videojuego no esta disponible por favor registre otro estasdo (2 o 3)`
+                "messege":`${iduser} el videojuego no esta disponible por favor registre otro estasdo (2 o 3)`
             })
         }
 
@@ -73,7 +66,7 @@ export const ListarReservados= async(req,res)=>{
 export const ListarDisponibles= async(req,res)=>{
     try{
         const[result]=await pool.query (`SELECT fecha_alquiler,cantidad,nombres as usuario ,nombre as juego, estado FROM alquiler join usuarios on idusuario=usuario join juegos on idjuego=juego where estado='devolucion'`);
-        console.log (result)
+        
         if (Array.isArray(result) && result.length == 0) {
             res.json({"Message":"No Se Encontraron Resultados"})
         }else{
@@ -100,14 +93,14 @@ export const ListarAlquiler= async(req,res)=>{
 export const EntregarJuego=async(req,res)=>{
     try {
         let id=req.params.id;
-        let sqllite=`select estado from alquiler where usuario='${id}'`
+        let sqllite=`select estado from alquiler where idalquiler='${id}'`
         const[noo]=await pool.query(sqllite); 
-        console.log(noo)
+        
         let estadoP=noo[0].estado=='prestamo';
         let estodoR=noo[0].estado=='reserva';
         
         if (estadoP || estodoR) {
-            let sql = `UPDATE alquiler SET estado =3, fecha_devolucion = NOW() WHERE usuario=${id}`;
+            let sql = `UPDATE alquiler SET estado =3, fecha_devolucion = NOW() WHERE idalquiler=${id}`;
             const[rows]=await pool.query(sql);
 
             if(rows.affectedRows>0){
@@ -121,7 +114,7 @@ export const EntregarJuego=async(req,res)=>{
                                     "message":" No se puedo devolver el juego"
                                     });
             }   
-        } 
+        }  
 
         if (!estadoP||!estodoR) {
             res.status(401).json({
