@@ -6,7 +6,7 @@ import{ValidatorUser}from "../validator/user.validator.js"
 const usuarioRoute=Router();
 usuarioRoute.get('/listar',listarUsuario);
 usuarioRoute.post('/buscar/:id',buscarUsuario);
-usuarioRoute.post('/registrar',validadToken,ValidatorUser,guardarUsuario);
+usuarioRoute.post('/registrar',ValidatorUser,guardarUsuario);
 
 
 usuarioRoute.delete('/eliminar/:id',validadToken,eliminarUsuario);
