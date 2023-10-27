@@ -78,15 +78,98 @@ eliminacion.addEventListener('click',(id)=>{
     console.log('siiii')
 }) */
 function elimiarUsuario(id) {
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+          confirmButton: 'btn btn-success',
+          cancelButton: 'btn btn-danger'
+        },
+        buttonsStyling: true
+      })
+      
+      swalWithBootstrapButtons.fire({
+        title: 'Seguro Deseas Eliminar?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'eliminar',
+        cancelButtonText: 'cancel',
+        reverseButtons: true
+      }).then((result) => {
+        if (result.isConfirmed){
+            fetch(`http://localhost:3000/usuarios/eliminar/${id}`,
+            {
+                method:'delete'
+            }).then(resp=>resp.json)
+            .then(result=>{
+                if(result.status==200){
+                    ListarUsuarios();
+                    Swal.fire({
+                        title:'Mensaje',
+                        text:data.message,
+                        icon:'success',
+                        confirmButtonText:'cerrar'
+                    })
+                }
+                if(result.status==401){
+                    ListarUsuarios();
+                    Swal.fire({
+                        title:'Mensaje',
+                        text:data.message,
+                        icon:'warning',
+                        confirmButtonText:'cerrar'
+                    })
+                }
+                if(result.status==500){
+                    ListarUsuarios();
+                    Swal.fire({
+                        title:'Mensaje',
+                        text:data.message,
+                        icon:'error',
+                        confirmButtonText:'cerrar'
+                    })
+                }
+               
+            })
+        } else if (
+            /* Read more about handling dismissals below */
+            result.dismiss === Swal.DismissReason.cancel
+          ) {
+            swalWithBootstrapButtons.fire(
+              'Cancelled',
+              'Your imaginary file is safe :)',
+              'error'
+            )
+          }
+      })
+}
+        
+        
+
+
+          
+        
+     
+    
+
+
+
+
+
+
+/* 
 fetch(`http://localhost:3000/usuarios/eliminar/${id}`,
     {
         method:'delete'
     }).then(resp=>resp.json)
     .then(data=>{
-       /*  ListarUsuarios(); */
-        alert(data.message)
+       ListarUsuarios(); 
+       swalWithBootstrapButtons.fire(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+          )
+      })
     }) 
-}
+} */
 /* fetch(`http://localhost:3000/usuarios/eliminar/${id}`,
     {
         method:'delete'

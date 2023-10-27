@@ -9,7 +9,7 @@ usuarioRoute.post('/buscar/:id',buscarUsuario);
 usuarioRoute.post('/registrar',ValidatorUser,guardarUsuario);
 
 
-usuarioRoute.delete('/eliminar/:id',validadToken,eliminarUsuario);
+usuarioRoute.delete('/eliminar/:id',eliminarUsuario);
 usuarioRoute.put('/actualizar/:id',validadToken,actualizarUsuario);
 
 export default  usuarioRoute;
