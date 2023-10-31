@@ -26,7 +26,7 @@ app.use('/usuarios',usuarioRoute);
 app.use('/juego',juegoRoute);
 app.use('/Aquiler',AlquilerRouter);
 app.use("/Aut",ourRoute);
-
-app.listen(3000,()=>{
-  console.log("Servidor ejecutando en el puerto 3000");
+let port=3000
+app.listen(port,()=>{
+  console.log("Servidor ejecutando en el puerto "+port);
 });

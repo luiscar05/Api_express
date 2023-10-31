@@ -72,7 +72,7 @@ export const actualizarUsuario=async(req,res)=>{
     try {
         let id=req.params.id;
         let {nombres,direccion,telefono,correo,rol}=req.body;
-        let sql = `UPDATE usuarios SET nombres='${nombres}', direccion='${direccion}', telefono='${telefono}', correo='${correo}', rol='${rol}' WHERE idusuario=${id}`;
+        let sql = `UPDATE usuarios SET nombres='${nombres}', direccion='${direccion}', telefono='${telefono}', correo='${correo}' WHERE idusuario=${id}`;
 
         const[rows]=await pool.query(sql);
 
