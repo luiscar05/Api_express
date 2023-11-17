@@ -143,12 +143,13 @@ const buscar = (id) => {
 
   let actualizar = document.getElementById('UserUpdate')
   actualizar.addEventListener('click', (event) => { // Cambiado 'id' a 'event'
-    let info = new URLSearchParams()
-    
-    console.log(info.append('nombres', document.getElementById('Nombre').value))
-    console.log(info.append('direccion', document.getElementById('Direccion').value))
-    console.log(info.append('telefono', document.getElementById('Telefono').value))
-    console.log(info.append('correo', document.getElementById('email').value)) 
+    let info = new URLSearchParams();
+    console.log(document.getElementById('NombreActualizado').value);
+    info.append('nombres', document.getElementById('NombreActualizado').value);
+    info.append('direccion', document.getElementById('DireccionActualizado').value);
+    info.append('telefono', document.getElementById('TelefonoActualizado').value);
+    info.append('correo', document.getElementById('emailActualizado').value);
+
     fetch(`http://localhost:3000/usuarios/actualizar/${id}`,{ 
       method: 'put',
       body: info
@@ -173,7 +174,7 @@ const buscar = (id) => {
           icon: 'success',
           title: `${data.message}`
         })
-      })   
+      })    
   })
 }
 
@@ -182,28 +183,11 @@ const BuscarUser= (id)=>{
       method:'get'
   }) .then(resp=>resp.json())
   .then(data=>{
-    console.log(data[0].nombres)
-    let buscar=`
-            <div class="mb-3">
-              <label for="Nombre" class="form-label">Example label</label>
-              <input type="text" class="form-control" id="Nombre" placeholder="Ingrese Su Nombre" name="nombres" value='${data[0].nombres}'>
-            </div>
-            <div class="mb-3">
-              <label for="Direccion" class="form-label">Another label</label>
-              <input type="text" class="form-control" id="Direccion" placeholder="Ingrese su Direccion" name="direccion"  value='${data[0].direccion}'>
-            </div>
-            <div class="mb-3">
-              <label for="Telefono" class="form-label">Telefonol</label>
-              <input type="number" class="form-control" id="Telefono" placeholder="Ingrese su Telefono" name="telefono"  value='${data[0].telefono}'>
-            </div>
-            <div class="mb-3">
-              <label for="email" class="form-label">Email address</label>
-              <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Ingrese su email" name="correo"  value='${data[0].correo}'>
-            </div>
-    `
-    
-    document.getElementById('busquedas').innerHTML=buscar
-    
+   
+    document.getElementById('NombreActualizado').value = data[0].nombres;
+    document.getElementById('DireccionActualizado').value = data[0].direccion;
+    document.getElementById('TelefonoActualizado').value = data[0].telefono;
+    document.getElementById('emailActualizado').value = data[0].correo;
   })
 }
 
