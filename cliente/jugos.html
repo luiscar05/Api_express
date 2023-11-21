@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juegos</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="./css/juegos.css">
 </head>
-<body>
+<body class="fondo">
     <div class=" container w-20">
-        <button class="btn btn-primary p-2 d-flex flex-row"  id="NewUser"> 
+        <button class="btn btn-primary p-2 d-flex flex-row"  id="NewUser"  data-bs-toggle="modal" data-bs-target="#ModalJuego"> 
             Nuevo 
         </button>
     </div>
@@ -19,6 +19,56 @@
             <a href=""></a>
         </div>
     </div>
+
+
+    <!-- Modal Registro -->
+    <div class="modal fade" id="ModalJuego" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Registrar Juego</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <!-- Formulario de Registo Juego -->
+              <form>
+                <div class="mb-3">
+                  <label for="Nombre" class="form-labe">Nombre</label>
+                  <input type="email" class="form-control" id="Nombre" >
+                
+                </div>
+                <div class="mb-3">
+                  <label for="Descripcion" class="form-labe">Descripcion</label>
+                  <input type="text" class="form-control" id="Descripcion">
+                </div>
+                <div class="mb-3">
+                    <label for="Imagen" class="form-labe">Imagen</label>
+                    <input type="file" name="" class="form-control" id="Imagen">
+                </div>
+                <div class="mb-3">
+                    <label for="Imagen" class="form-labe">Precio</label>
+                    <div class="input-group mb-3">
+                  
+                        <span class="input-group-text">$</span>
+                        <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" id="Precio">
+                        <span class="input-group-text">.00</span>
+                      </div>
+                </div>
+                
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary" id="Registrar">Registrar Juego</button>
+                  </div>
+              </form>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+
     <script src="./js/juegos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>
