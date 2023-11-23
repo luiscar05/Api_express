@@ -17,12 +17,12 @@ app.set('views', './views');
 
 app.use(express.static('./public'));
 
+app.use('/usuarios',usuarioRoute);
+app.use('/juego',juegoRoute);
+app.use('/alquiler',AlquilerRouter);
+app.use('/autenticacion',ourRoute);
 
-app.get('/',(req,res)=>{
- return res.status(200,"funciona")
-});
-;
 let port=3000
-app.listen(port,"::",()=>{
+app.listen(port,()=>{
   console.log("Servidor ejecutando en el puerto "+port);
 });

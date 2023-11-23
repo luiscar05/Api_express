@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/juegos.css">
 </head>
-<body class="fondo">
+<body class="fondo" onload="  listarJuego()">
 
     <!-- MENU -->
     <div class="collapse" id="navbarToggleExternalContent">
@@ -63,7 +63,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="Imagen" class="form-labe">Imagen</label>
-                    <input type="file" name="" class="form-control" id="Imagen">
+                    <input type="file" name="" class="form-control" accept=".jpg, .jpeg, .png, .jpeg" id="Imagen">
                 </div>
                 <div class="mb-3">
                     <label for="Imagen" class="form-labe">Precio</label>
@@ -107,10 +107,10 @@
                   <label for="Descripcion" class="form-labe">Descripcion</label>
                   <input type="text" class="form-control" id="DescripcionUpdate">
                 </div>
-                <div class="mb-3">
+                <!-- <div class="mb-3">
                     <label for="Imagen" class="form-labe">Imagen</label>
-                    <input type="file" name="" class="form-control" id="ImagenUpdate" value="hola">
-                </div>
+                    <input type="file" name="" class="form-control" id="ImagenUpdate" accept=".jpg, .jpeg, .png, .jpeg" >
+                </div> -->
                 <div class="mb-3">
                     <label for="Imagen" class="form-labe">Precio</label>
                     <div class="input-group mb-3">
