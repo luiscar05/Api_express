@@ -1,3 +1,4 @@
+
 const listarJuego = () => {
     fetch("http://localhost:3000/juego/listar", {
       method: "get"
@@ -8,14 +9,14 @@ const listarJuego = () => {
   
         data.forEach(element => {
           let BoxPlay = document.createElement('div');
-          BoxPlay.classList.add('col', 'border','p-2','flex','bg-light','rounded',);
+          BoxPlay.classList.add('col', 'border','p-1','flex','bg-light','rounded','m-4');
   
           let BoxImg = document.createElement('div');
           let img = document.createElement('img');
           img.classList.add('w-64','h-auto','rounded-sg','shadow-md')
           img.src = `../public/img/${element.imagen}`; // Asigna la URL de la imagen al atributo src de la etiqueta img
-          img.style.width = '100%';
-          img.style.height = 'auto';
+          img.style.width = '60%';
+          img.style.height = '50%';
           BoxImg.appendChild(img);
   
           BoxPlay.appendChild(BoxImg);
@@ -39,7 +40,7 @@ const listarJuego = () => {
             /* BOTONES ADMIN */
             let actualizar = document.createElement('div');
             actualizar.classList.add('btn', 'bg-primary', 'text-light', 'm-1', 'p-2', 'rounded');
-            actualizar.innerHTML = `<a href="#" class="text-light">Actualizar</a>`;
+            actualizar.innerHTML = `<a href="javascript:actualizar(${element.idjuego})" class="text-light" id="NewUser" >Actualizar </a> `;
             opciones.appendChild(actualizar);
 
             let eliminar = document.createElement('div');
@@ -69,11 +70,11 @@ const listarJuego = () => {
 
       RegistarJuego.addEventListener("click",()=>{
         ModalUser.show();
-       let datos = new URLSearchParams(); 
-       /* let datos = new FormData() */
+        
+       let datos = new FormData() 
         datos.append('nombre',document.getElementById('Nombre').value)
         datos.append('descripcion',document.getElementById('Descripcion').value)
-        datos.append('imagen',document.getElementById('Imagen').files[0])
+        datos.append('img',document.getElementById('Imagen').files[0])
         datos.append('precio',document.getElementById('Precio').value)
 
         fetch('http://localhost:3000/juego/registrar',{
@@ -102,5 +103,40 @@ const listarJuego = () => {
                 title: `${data.message}`
               })
         }) 
+        .catch(error => {
+          console.error('Error en la solicitud fetch:', error);
+          // Posiblemente muestra un mensaje de error al usuario o toma alguna acción adecuada.
+      });
       })
   })
+
+  const actualizar = (id)=>{
+
+
+    let ModalUser = new bootstrap.Modal(document.getElementById('ModalJuegoUpdate'), {
+      keyboard: false
+  })
+
+    ModalUser.show();
+    BuscarJuego(id)
+    let Actualizar = document.getElementById('Actualizar')
+    Actualizar.addEventListener('click',()=>{
+      if (document.getElementById('ImagenUpdate').trim()=="") {
+        console.log('Imagen anterior')
+      }
+    })
+    
+  }
+
+  const BuscarJuego=(id)=>{
+    fetch(`http://localhost:3000/juego/buscar/${id}`,{
+      method:'get'
+    })
+    .then(resp=>resp.json())
+    .then(data=>{
+      document.getElementById('NombreUpdate').value=data[0].nombre 
+      document.getElementById('DescripcionUpdate').value=data[0].descripcion
+      document.getElementById('ImagenUpdate').file=data[0].imagen
+      document.getElementById('PrecioUpdate').value=data[0].precio      
+    })
+  }

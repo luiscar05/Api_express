@@ -15,11 +15,22 @@
   </head>
   <body>
     <!-- MENU -->
-    <div>
-      <li><a href="./login.html">login</a></li>
-      <li><a href="./index.html">Usuarios</a></li>
-      <li><a href="./jugos.html">Juegos</a></li>
+    <div class="collapse" id="navbarToggleExternalContent">
+      <nav class="navbar  navbar-dark bg-dark">
+        <div class="container-fluid justify-content-start">
+          <li class="list-group"><a class="btn btn-outline-primary me-2" href="./login.html">login</a></li>
+          <li class="list-group"><a class="btn btn-outline-primary me-2" href="./index.html">Usuarios</a></li>
+          <li class="list-group"><a class="btn btn-outline-primary me-2" href="./jugos.html">Juegos</a></li>
+        </div>
+      </nav>
     </div>
+    <nav class="navbar navbar-dark bg-dark">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </nav>
   <!-- Crud Usuarios -->
    <div class="container w-100">
     <div class="row">
