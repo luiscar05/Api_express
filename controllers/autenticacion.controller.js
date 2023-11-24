@@ -11,9 +11,9 @@ export const ValidarUsuario = async  (req,res)=>{
         const[Rows]=await pool.query(sql);
         if(Rows.length>0){
             let token=Jwt.sign({User:Rows}, process.env.AUT_SECRET ,{expiresIn:process.env.AUT_EXPIRE})
-            return res.status(200).json({TOKEN:token,message:"Usuario Autorizado"})
+            return res.status(200).json({"status":200,data:Rows,"token":token, message:"Usuario Autorizado"})
         }else{
-            res.status(401).json({
+            return res.status(401).json({
                                 "status":401,
                                 "message":" usuario no encontrado"
                                 });

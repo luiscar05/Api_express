@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- Bootstrap CSS -->
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.2/css/bootstrap.min.css"> -->
+
+
+    <title>Usuarios</title>
+  </head>
+  <body>
+    <!-- MENU -->
+    <div class="collapse" id="navbarToggleExternalContent">
+      <nav class="navbar  navbar-dark bg-dark">
+        <div class="container-fluid justify-content-start">
+          <li class="list-group"><a class="btn btn-outline-primary me-2" href="./login.html">login</a></li>
+          <li class="list-group"><a class="btn btn-outline-primary me-2" href="./index.html">Usuarios</a></li>
+          <li class="list-group"><a class="btn btn-outline-primary me-2" href="./jugos.html">Juegos</a></li>
+        </div>
+      </nav>
+    </div>
+    <nav class="navbar navbar-dark bg-dark">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </nav>
+  <!-- Crud Usuarios -->
+   <div class="container  rounded" style="width: 100%; margin-top: 10%;">
+    <div class="row">
+      <button class="btn btn-primary "  id="NewUser"> Nuevo </button>
+    </div>
+    <div class="row">
+        <table class="table table-dark table-striped table-hover">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Direccio</th>
+                <th scope="col">Telefono</th>
+                <th scope="col">correo</th>
+                <th scope="col">rol</th>
+                <th scope="col " colspan="2">Administrar</th>
+              </tr>
+            </thead>
+            <tbody id="UserTable" class="">
+             
+            </tbody>
+          </table>
+    </div>
+   </div>
+   <!-- modal -->
+   <div class="modal fade " id="ModalUsuario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content ">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Registrar Usuario</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Formulario -->
+          <form>
+            
+            
+            <div class="mb-3">
+              <label for="Nombre" class="form-label">Example label</label>
+              <input type="text" class="form-control" id="Nombre" placeholder="Ingrese Su Nombre" name="nombres">
+            </div>
+            <div class="mb-3">
+              <label for="Direccion" class="form-label">Another label</label>
+              <input type="text" class="form-control" id="Direccion" placeholder="Ingrese su Direccion" name="direccion">
+            </div>
+            <div class="mb-3">
+              <label for="Telefono" class="form-label">Telefonol</label>
+              <input type="number" class="form-control" id="Telefono" placeholder="Ingrese su Telefono" name="telefono">
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Ingrese su email" name="correo">
+            </div>
+            <div class="mb-3">
+              <label  class="form-label">Tipo de Usuario</label>
+              <select class="form-select" aria-label="Default select example" id="rol">
+                <option selected>Selecione Uno</option>
+                <option value="usuario">Usuario</option>
+                <option value="administrador">Administrador</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="Password" class="form-label">Password</label>
+              <input type="password" class="form-control" id="Password" placeholder="Ingrese su contraseña" name="password">
+            </div>
+            <div class="mb-3 form-check">
+              
+            </div>
+
+    
+          </form>
+        </div>
+        <div class="modal-footer">
+          
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="RegistrarUser" >Registrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <!-- Modal -->
+    <div class="modal fade " id="ModalUsuarioActualizado" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content ">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Actualizar Usuario</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <!-- Formulario -->
+           <form action="" id="busquedas">
+            <div class="mb-3">
+              <label for="Nombre" class="form-label">Example label</label>
+              <input type="text" class="Nombre form-control" id="NombreActualizado" placeholder="Ingrese Su Nombre" name="nombres" >
+            </div>
+            <div class="mb-3">
+              <label for="Direccion" class="form-label">Another label</label>
+              <input type="text" class="Direccion form-control" id="DireccionActualizado" placeholder="Ingrese su Direccion" name="direccion"  >
+            </div>
+            <div class="mb-3">
+              <label for="Telefono" class="form-label">Telefonol</label>
+              <input type="number" class="Telefono form-control" id="TelefonoActualizado" placeholder="Ingrese su Telefono" name="telefono"  >
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email address</label>
+              <input type="email" class="email form-control" id="emailActualizado" aria-describedby="emailHelp" placeholder="Ingrese su email" name="correo"">
+            </div>
+           </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="UserUpdate" >Actualizar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  <!-- MODAL ACTUALIZAR -->
+  
+
+
+   <script src="js/home.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </body>
+</html>
