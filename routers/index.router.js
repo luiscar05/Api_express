@@ -7,4 +7,5 @@ const indexRouter = Router()
 indexRouter.get("/",Index.RenderLogin);
 indexRouter.get("/home",validadToken,Index.abrirhome)
 
+
 export default indexRouter

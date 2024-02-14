@@ -25,25 +25,28 @@ const ValidarUser = ()=>{
     }) 
 
 }
-const VerHome = ()=>{
-    fetch('http://localhost:3000/home',{
-        method: 'get',
-        headers:{
-            "token":localStorage.getItem('token')
+const VerHome = () => {
+    fetch('http://localhost:3000/home', {
+        method: 'GET',
+        headers: {
+            "token": localStorage.getItem('token')
         }
     })
-    .then(data=>{
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`Error HTTP! Estado: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
         if (data && data.authorized) {
-            window.location.href = '/home'; // Redirigir si la respuesta indica que está autorizado
+            window.location.replace('/home');
         } else {
             console.log("No autorizado para acceder a '/home'");
         }
-        window.location.href='/home'
-        /* if (data && data.redirectTo === '/home') {
-            window.location.href = data.redirectTo; // Redirigir si la respuesta indica '/Home'
-        }  */
-    }) 
-    .catch(error=>{
-        return console.log("error en la solicitud"+ error)
     })
-}
+    .catch(error => {
+        console.error("Error en la solicitud:", error.message);
+    });
+};
+
